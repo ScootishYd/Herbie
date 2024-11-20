@@ -1,11 +1,15 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\ProfileController;
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+<<<<<<< HEAD
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -18,3 +22,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)

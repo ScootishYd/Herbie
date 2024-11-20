@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "7fe2d78d58ec0a62a24970476f73b0bf",
+=======
+    "content-hash": "626b9e7ddd47fb7eff9aaa53cce0c9ad",
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
     "packages": [
         {
             "name": "brick/math",
@@ -511,6 +515,7 @@
             "time": "2023-10-06T06:47:41+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "firebase/php-jwt",
             "version": "v6.10.1",
             "source": {
@@ -574,6 +579,8 @@
             "time": "2024-05-18T18:05:11+00:00"
         },
         {
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
             "name": "fruitcake/php-cors",
             "version": "v1.3.0",
             "source": {
@@ -1447,6 +1454,7 @@
             "time": "2024-11-19T01:38:44+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "laravel/socialite",
             "version": "v5.16.0",
             "source": {
@@ -1519,6 +1527,8 @@
             "time": "2024-09-03T09:46:57+00:00"
         },
         {
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
             "name": "laravel/tinker",
             "version": "v2.10.0",
             "source": {
@@ -1961,6 +1971,7 @@
             "time": "2024-09-21T08:32:55+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "league/oauth1-client",
             "version": "v1.10.1",
             "source": {
@@ -2037,6 +2048,8 @@
             "time": "2022-04-15T14:02:14+00:00"
         },
         {
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
             "name": "monolog/monolog",
             "version": "3.8.0",
             "source": {
@@ -2539,6 +2552,7 @@
             "time": "2024-10-15T16:15:16+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "paragonie/constant_time_encoding",
             "version": "v3.0.0",
             "source": {
@@ -2656,6 +2670,8 @@
             "time": "2020-10-15T08:29:30+00:00"
         },
         {
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
             "name": "phpoption/phpoption",
             "version": "1.9.3",
             "source": {
@@ -2731,6 +2747,7 @@
             "time": "2024-07-20T21:41:07+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "phpseclib/phpseclib",
             "version": "3.0.42",
             "source": {
@@ -2841,6 +2858,8 @@
             "time": "2024-09-16T03:06:04+00:00"
         },
         {
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
             "name": "psr/clock",
             "version": "1.0.0",
             "source": {
@@ -6054,6 +6073,7 @@
     ],
     "packages-dev": [
         {
+<<<<<<< HEAD
             "name": "brianium/paratest",
             "version": "v7.6.0",
             "source": {
@@ -6194,6 +6214,8 @@
             "time": "2024-01-30T19:34:25+00:00"
         },
         {
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
             "name": "fakerphp/faker",
             "version": "v1.24.0",
             "source": {
@@ -6257,6 +6279,7 @@
             "time": "2024-11-07T15:11:20+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "fidry/cpu-core-counter",
             "version": "1.2.0",
             "source": {
@@ -6318,6 +6341,8 @@
             "time": "2024-08-06T10:04:20+00:00"
         },
         {
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
             "name": "filp/whoops",
             "version": "2.16.0",
             "source": {
@@ -6440,6 +6465,7 @@
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "jean85/pretty-package-versions",
             "version": "2.1.0",
             "source": {
@@ -6559,6 +6585,8 @@
             "time": "2024-11-12T14:56:47+00:00"
         },
         {
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
             "name": "laravel/pail",
             "version": "v1.2.1",
             "source": {
@@ -7006,6 +7034,7 @@
             "time": "2024-10-15T16:06:32+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "pestphp/pest",
             "version": "v3.5.1",
             "source": {
@@ -7404,6 +7433,8 @@
             "time": "2024-09-22T07:54:40+00:00"
         },
         {
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
             "name": "phar-io/manifest",
             "version": "2.0.4",
             "source": {
@@ -7522,6 +7553,7 @@
             "time": "2022-02-21T01:04:05+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "phpdocumentor/reflection-common",
             "version": "2.2.0",
             "source": {
@@ -7744,6 +7776,8 @@
             "time": "2024-10-13T11:29:49+00:00"
         },
         {
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
             "name": "phpunit/php-code-coverage",
             "version": "11.0.7",
             "source": {
@@ -9161,6 +9195,7 @@
             "time": "2024-09-25T14:20:29+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "ta-tikoma/phpunit-architecture-test",
             "version": "0.8.4",
             "source": {
@@ -9220,6 +9255,8 @@
             "time": "2024-01-05T14:10:56+00:00"
         },
         {
+=======
+>>>>>>> 38e03ac (Set up a fresh Laravel app)
             "name": "theseer/tokenizer",
             "version": "1.2.3",
             "source": {
