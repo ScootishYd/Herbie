@@ -13,7 +13,9 @@
     <nav class="absolute top-0 left-0 w-full z-50">
         <div class="max-w-4xl mx-auto flex items-center justify-between px-4 py-4">
             <!-- Logo -->
-            <a href="/" class="text-2xl font-bold text-green-700">herbie</a>
+            <a href="/">
+                <img src="/images/logo.png" alt="Herbie Logo" class="h-10">
+            </a>
 
             <!-- Login Button -->
             <a href="/login" class="px-4 py-2 bg-green-700 hover:bg-green-800 text-[#F5F5F5] rounded-md">
@@ -37,7 +39,7 @@
                     Secara profesional mengoptimalkan praktik terbaik koneksi intelektual yang saling bergantung dan dapat dioperasikan. Secara progresif membuat yang sudah selesai.
                 </p>
                 <div class="mt-8">
-                    <a href="/register" class="px-6 py-3 bg-[#FAFAFA] hover:bg-black text-black text-base rounded-md font-medium">
+                    <a href="/register" class="px-6 py-3 bg-[#f5f5f5] opacity-50 hover:bg-[#2efaac] text-black text-base rounded-md font-medium">
                         Daftar Sekarang
                     </a>
                 </div>
