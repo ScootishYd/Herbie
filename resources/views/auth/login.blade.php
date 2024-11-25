@@ -21,15 +21,16 @@
     </nav>
 
     <!-- Login Form -->
-    <div class="flex items-center justify-center min-h-[80vh]">
+    <form action="{{ route('login') }}" method="POST" class="flex items-center justify-center min-h-[80vh]">
+        @csrf
         <div class="bg-white p-8 rounded-lg shadow-md w-[400px]">
             <!-- Title -->
             <h2 class="text-center text-green-800 text-xl font-semibold mb-6">Masuk</h2>
 
             <!-- Username/Email Input -->
             <div class="mb-4">
-                <label for="email" class="block text-green-800 text-sm font-medium mb-1">Masukkan Username atau E-mail</label>
-                <input id="email" type="text" name="email" required class="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500" />
+                <label for="username" class="block text-green-800 text-sm font-medium mb-1">Masukkan Username atau E-mail</label>
+                <input id="username" type="text" name="username" required class="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500" />
             </div>
 
             <!-- Password Input -->
@@ -40,7 +41,8 @@
 
             <!-- Submit Button -->
             <div class="mb-6">
-                <button class="w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500">
+                <button class="w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                type="submit">
                     Masuk
                 </button>
             </div>
@@ -73,7 +75,10 @@
                 Belum memiliki akun? <a href="/register" class="text-green-600 underline">Daftar disini!</a>
             </p>
         </div>
-    </div>
+    </form>
+    @if(session('failed'))
+    <p class="text-red-500 text-center py-2">{{ session('failed') }}</p>
+    @endif
 
 </body>
 

@@ -22,31 +22,42 @@
 
     <!-- Login Form -->
     <div class="flex items-center justify-center min-h-[80vh]">
-        <div class="bg-white p-8 rounded-lg shadow-md w-[400px]">
+        <form action="{{ route('register') }}" method="POST" class="bg-white p-8 rounded-lg shadow-md w-[400px]">
+            @csrf
             <!-- Title -->
             <h2 class="text-center text-green-800 text-xl font-semibold mb-6">Daftar</h2>
 
             <!-- Username/Email Input -->
             <div class="mb-4">
-                <label for="email" class="block text-green-800 text-sm font-medium mb-1">Masukkan Username atau E-mail</label>
-                <input id="email" type="text" name="email" required class="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500" />
+                <label for="username" class="block text-green-800 text-sm font-medium mb-1">Masukkan Username</label>
+                <input id="username" type="text" name="username" required class="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500" />
+                @error('username')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
             </div>
 
             <!-- Password Input -->
             <div class="mb-6">
                 <label for="password" class="block text-green-800 text-sm font-medium mb-1">Password</label>
                 <input id="password" type="password" name="password" required class="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500" />
+                @error('password')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
             </div>
 
             <!-- Konfirmasi Password Input -->
             <div class="mb-6">
                 <label for="password" class="block text-green-800 text-sm font-medium mb-1">Konfirmasi Password</label>
-                <input id="password" type="password" name="password" required class="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500" />
+                <input id="password" type="password" name="password_confirmation" required class="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500" />
+                @error('password_confirmation')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
             </div>
 
             <!-- Submit Button -->
             <div class="mb-6">
-                <button class="w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500">
+                <button class="w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                type="submit">
                     Daftar
                 </button>
             </div>
@@ -73,9 +84,7 @@
                     </svg>
                 </a>
             </div>
-        </div>
+        </form>
     </div>
-
 </body>
-
 </html>
