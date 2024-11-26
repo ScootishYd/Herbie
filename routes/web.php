@@ -9,7 +9,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login/submit', [LoginController::class, 'login']);
+Route::post('/login/submit', [LoginController::class, 'login'])->name('login');
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register/submit', [RegisterController::class, 'register']);
