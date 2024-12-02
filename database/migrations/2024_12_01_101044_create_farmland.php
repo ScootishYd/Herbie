@@ -11,19 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('farmland', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('username')->nullable();
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('nama_lengkap')->nullable();
-            $table->string('no_telp')->nullable();
+            $table->string('pemilik');
+            $table->string('nama_lahan');
+            $table->string('lokasi');
+            $table->string('luas');
+            $table->string('foto');
+            $table->date('tgl_mulai_tanam');
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('farmland');
     }
 };

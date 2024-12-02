@@ -15,7 +15,7 @@ export default {
                 roboto: ['Roboto', 'sans-serif'],
             },
             fontSize: {
-                '2xs': '0.5rem'
+                '2xs': ['12px', '16px'],
             }
         },
         backgroundImage: {

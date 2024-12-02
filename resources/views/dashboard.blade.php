@@ -1,75 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Hebrie</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard - Herbie</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="flex bg-neutral-100 m-16 gap-6 font-roboto">
+    <x-sidebar/>
+    <div class="hidden">    {{ $lahan = 0 }}</div>
 
-<body class="flex bg-neutral-100 m-16 gap-6">
-    <div class="flex-none w-[320px]">
-        <div class="bg-neutral-50 shadow-md p-4 rounded-2xl mb-6">
-            <div class="flex justify-between items-center w-full mb-2">
-                <img src="./images/logo.png" alt="Herbie Logo" class="h-6">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 15V8C24 7.73478 23.8946 7.48043 23.7071 7.29289C23.5196 7.10536 23.2652 7 23 7H17V1C17 0.734784 16.8946 0.48043 16.7071 0.292893C16.5196 0.105357 16.2652 0 16 0H1C0.734784 0 0.48043 0.105357 0.292893 0.292893C0.105357 0.48043 0 0.734784 0 1V9V16C0 16.2652 0.105357 16.5196 0.292893 16.7071C0.48043 16.8946 0.734784 17 1 17H7V23C7 23.2652 7.10536 23.5196 7.29289 23.7071C7.48043 23.8946 7.73478 24 8 24H23C23.2652 24 23.5196 23.8946 23.7071 23.7071C23.8946 23.5196 24 23.2652 24 23V15ZM15.4137 22L2 8.58625V3.41375L20.5863 22H15.4137ZM3.41375 2H8.58625L22 15.4137V20.5863L3.41375 2ZM22 12.5863L18.4137 9H22V12.5863ZM15 5.58625L11.4137 2H15V5.58625ZM2 11.4137L5.58625 15H2V11.4137ZM9 18.4137L12.5863 22H9V18.4137Z" fill="#525252" />
-                </svg>
+    <div class="flex-grow w-full p-4 rounded-2xl">
+        <h1 class="font-roboto text-2xl font-bold text-green-600 mb-2">Dashboard Perusahaan</h1>
+        <div class="flex gap-2 mb-2">
+            <img src="https://placehold.co/48" alt="">
+            <div class="text-neutral-950">
+                <h1 class="font-bold">Nama Perusahaan</h1>
+                <p class="text-sm font-light">Deskripsi Perusahaan</p>
             </div>
-            <hr class="mb-2">
-            <div class="bg-green-600 rounded-md p-2 flex">
-                <img src="https://placehold.co/32" alt="" class="me-2">
-                <div class="font-roboto">
-                    <h1 class="font-bold text-md text-neutral-50">Nama Perusahaan</h1>
-                    <p class="font-light text-sm text-neutral-50">Jenis Perusahaan</p>
+        </div>
+
+        <div class="flex items-center mb-6">
+            <div class="flex items-center gap-2 me-8">
+                <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.28578 3.42861C5.72068 3.42861 5.16828 3.59618 4.69842 3.91013C4.22856 4.22408 3.86235 4.67031 3.64609 5.19239C3.42984 5.71447 3.37326 6.28895 3.48351 6.84318C3.59375 7.39742 3.86587 7.90652 4.26545 8.3061C4.66503 8.70569 5.17413 8.97781 5.72837 9.08805C6.28261 9.19829 6.85709 9.14171 7.37917 8.92546C7.90125 8.70921 8.34748 8.343 8.66143 7.87314C8.97538 7.40328 9.14295 6.85087 9.14295 6.28578C9.14295 5.52801 8.84193 4.80128 8.3061 4.26545C7.77028 3.72963 7.04355 3.42861 6.28578 3.42861ZM6.28578 8.00008C5.94672 8.00008 5.61528 7.89954 5.33336 7.71117C5.05145 7.5228 4.83172 7.25506 4.70197 6.94181C4.57222 6.62856 4.53827 6.28388 4.60441 5.95133C4.67056 5.61879 4.83383 5.31333 5.07358 5.07358C5.31333 4.83383 5.61879 4.67056 5.95133 4.60441C6.28387 4.53827 6.62856 4.57222 6.94181 4.70197C7.25506 4.83172 7.5228 5.05145 7.71117 5.33336C7.89954 5.61528 8.00008 5.94672 8.00008 6.28578C8.00008 6.74044 7.81947 7.17648 7.49797 7.49797C7.17648 7.81947 6.74044 8.00008 6.28578 8.00008ZM6.28578 0C4.61927 0.00189054 3.02155 0.664747 1.84315 1.84315C0.664747 3.02155 0.00189054 4.61927 0 6.28578C0 8.52866 1.03644 10.9058 3.00003 13.1608C3.88234 14.1798 4.87537 15.0974 5.96077 15.8966C6.05685 15.9639 6.17132 16 6.28863 16C6.40594 16 6.52041 15.9639 6.61649 15.8966C7.6999 15.0971 8.691 14.1795 9.57152 13.1608C11.5323 10.9058 12.5716 8.52866 12.5716 6.28578C12.5697 4.61927 11.9068 3.02155 10.7284 1.84315C9.55 0.664747 7.95229 0.00189054 6.28578 0ZM6.28578 14.7144C5.10505 13.7859 1.14287 10.3751 1.14287 6.28578C1.14287 4.92179 1.68471 3.61367 2.64919 2.64919C3.61367 1.68471 4.92179 1.14287 6.28578 1.14287C7.64976 1.14287 8.95788 1.68471 9.92236 2.64919C10.8868 3.61367 11.4287 4.92179 11.4287 6.28578C11.4287 10.3737 7.4665 13.7859 6.28578 14.7144Z" fill="#0A0A0A"/>
+                </svg>
+                <p class="text-sm font-light">Alamat Perusahaan</p>
+            </div>
+            <div class="flex items-center gap-2">
+                <svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.5718 0H1.17178C1.01265 0 0.860035 0.0632142 0.747513 0.175736C0.634991 0.288258 0.571777 0.44087 0.571777 0.6V10.8C0.571777 11.1183 0.698206 11.4235 0.923249 11.6485C1.14829 11.8736 1.45352 12 1.77178 12H14.9718C15.29 12 15.5953 11.8736 15.8203 11.6485C16.0453 11.4235 16.1718 11.1183 16.1718 10.8V0.6C16.1718 0.44087 16.1086 0.288258 15.996 0.175736C15.8835 0.0632142 15.7309 0 15.5718 0ZM8.37178 6.38625L2.71453 1.2H14.029L8.37178 6.38625ZM6.17503 6L1.77178 10.0358V1.96425L6.17503 6ZM7.06303 6.81375L7.96303 7.6425C8.07372 7.74411 8.21851 7.8005 8.36878 7.8005C8.51904 7.8005 8.66383 7.74411 8.77453 7.6425L9.67453 6.81375L14.0245 10.8H2.71453L7.06303 6.81375ZM10.5685 6L14.9718 1.9635V10.0365L10.5685 6Z" fill="#0A0A0A"/>
+                    </svg>
+                <p class="text-sm font-light">Email Perusahaan</p>
+            </div>
+        </div>
+
+        <div class="flex gap-6 h-fit">
+            <div class="flex-col flex-grow">
+                <div class="flex-shrink w-full bg-neutral-50 rounded-2xl shadow-sm p-4 h-fit">
+                    <div class="flex justify-between mb-2">
+                        <h1 class="text-xl text-green-600 font-bold">Dashboard Lahan</h1>
+                        <button id="add-lahan-modal" class="px-4 py-1 text-sm shadow-sm outline outline-1 outline-blue-600 rounded-md text-blue-600 hover:bg-neutral-200 hover:transition-all hover:duration-300">Tambah Lahan</button>
+                    </div>
+                    <div class="grid grid-cols-3 2xl:grid-cols-6 gap-1 overflow-y-auto">
+                        @foreach($dataLahan as $index => $lahan)
+                            <div class="lg:col-span-1 md:col-span-3 2xl:col-span-1 p-2 rounded-sm shadow-sm">
+                                @if($lahan->foto)
+                                    <img src="{{ asset($lahan->foto) }}" alt="Foto Lahan" class="w-48 h-16 rounded object-cover">
+                                @else
+                                    <p class="font-light text-sm text-neutral-600">Foto tidak Tersedia</p>
+                                @endif
+                                <h1 class="text-sm font-bold">{{ $lahan->nama_lahan }}</h1>
+                                <div class="flex justify-between text-neutral-600">
+                                    <p class="font-light" style="font-size: 0.75rem">{{ $lahan->lokasi }}</p>
+                                    <p class="text-sm font-light" style="font-size: 0.75rem">{{ $lahan->luas }} hA</p>
+                                </div>
+                                <div class="flex justify-end gap-1">
+                                    <button class="text-sm px-2 py-1 bg-red-600 hover:bg-red-500 rounded-md">
+                                        <svg width="18" height="22" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M18.1646 3.81396H14.4146V3.06396C14.4146 2.46723 14.1775 1.89493 13.7555 1.47297C13.3336 1.05102 12.7613 0.813965 12.1646 0.813965H7.66455C7.06781 0.813965 6.49552 1.05102 6.07356 1.47297C5.6516 1.89493 5.41455 2.46723 5.41455 3.06396V3.81396H1.66455C1.46564 3.81396 1.27487 3.89298 1.13422 4.03363C0.993569 4.17429 0.914551 4.36505 0.914551 4.56396C0.914551 4.76288 0.993569 4.95364 1.13422 5.09429C1.27487 5.23495 1.46564 5.31396 1.66455 5.31396H2.41455V18.814C2.41455 19.2118 2.57259 19.5933 2.85389 19.8746C3.1352 20.1559 3.51673 20.314 3.91455 20.314H15.9146C16.3124 20.314 16.6939 20.1559 16.9752 19.8746C17.2565 19.5933 17.4146 19.2118 17.4146 18.814V5.31396H18.1646C18.3635 5.31396 18.5542 5.23495 18.6949 5.09429C18.8355 4.95364 18.9146 4.76288 18.9146 4.56396C18.9146 4.36505 18.8355 4.17429 18.6949 4.03363C18.5542 3.89298 18.3635 3.81396 18.1646 3.81396ZM6.91455 3.06396C6.91455 2.86505 6.99357 2.67429 7.13422 2.53363C7.27487 2.39298 7.46564 2.31396 7.66455 2.31396H12.1646C12.3635 2.31396 12.5542 2.39298 12.6949 2.53363C12.8355 2.67429 12.9146 2.86505 12.9146 3.06396V3.81396H6.91455V3.06396ZM15.9146 18.814H3.91455V5.31396H15.9146V18.814ZM8.41455 9.06396V15.064C8.41455 15.2629 8.33553 15.4536 8.19488 15.5943C8.05423 15.7349 7.86346 15.814 7.66455 15.814C7.46564 15.814 7.27487 15.7349 7.13422 15.5943C6.99357 15.4536 6.91455 15.2629 6.91455 15.064V9.06396C6.91455 8.86505 6.99357 8.67429 7.13422 8.53363C7.27487 8.39298 7.46564 8.31396 7.66455 8.31396C7.86346 8.31396 8.05423 8.39298 8.19488 8.53363C8.33553 8.67429 8.41455 8.86505 8.41455 9.06396ZM12.9146 9.06396V15.064C12.9146 15.2629 12.8355 15.4536 12.6949 15.5943C12.5542 15.7349 12.3635 15.814 12.1646 15.814C11.9656 15.814 11.7749 15.7349 11.6342 15.5943C11.4936 15.4536 11.4146 15.2629 11.4146 15.064V9.06396C11.4146 8.86505 11.4936 8.67429 11.6342 8.53363C11.7749 8.39298 11.9656 8.31396 12.1646 8.31396C12.3635 8.31396 12.5542 8.39298 12.6949 8.53363C12.8355 8.67429 12.9146 8.86505 12.9146 9.06396Z" fill="white"/>
+                                        </svg>
+                                    </button>
+                                    <button id="edit-lahan-modal" 
+                                    data-id="{{ $lahan->id }}"
+                                    data-nama="{{ $lahan->nama_lahan }}"
+                                    data-pemilik="{{ $lahan->pemilik }}" 
+                                    data-lokasi="{{ $lahan->lokasi }}" 
+                                    data-luas="{{ $lahan->luas }}"
+                                    data-foto="{{ $lahan->foto }}"
+                                    data-tgl_mulai_tanam="{{ $lahan->tgl_mulai_tanam}}"
+                                    onclick="openEditModal(this)"
+                                    class="text-sm px-1 py-0.5 bg-yellow-400 hover:bg-yellow-300 rounded-md">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19.2258 5.19242L15.0361 1.00367C14.8968 0.864346 14.7315 0.753826 14.5494 0.678422C14.3674 0.603019 14.1723 0.564209 13.9753 0.564209C13.7783 0.564209 13.5832 0.603019 13.4012 0.678422C13.2192 0.753826 13.0538 0.864346 12.9146 1.00367L1.35425 12.564C1.21435 12.7028 1.10344 12.868 1.02796 13.05C0.952475 13.232 0.913929 13.4272 0.914558 13.6243V17.814C0.914558 18.2118 1.07259 18.5933 1.3539 18.8746C1.6352 19.1559 2.01673 19.314 2.41456 19.314H18.1646C18.3635 19.314 18.5542 19.235 18.6949 19.0943C18.8355 18.9537 18.9146 18.7629 18.9146 18.564C18.9146 18.3651 18.8355 18.1743 18.6949 18.0337C18.5542 17.893 18.3635 17.814 18.1646 17.814H8.72581L19.2258 7.31398C19.3651 7.17469 19.4757 7.00932 19.5511 6.82731C19.6265 6.64529 19.6653 6.45021 19.6653 6.2532C19.6653 6.05619 19.6265 5.86111 19.5511 5.6791C19.4757 5.49709 19.3651 5.33171 19.2258 5.19242ZM6.60425 17.814H2.41456V13.6243L10.6646 5.37429L14.8542 9.56398L6.60425 17.814ZM15.9146 8.50367L11.7258 4.31398L13.9758 2.06398L18.1646 6.25367L15.9146 8.50367Z" fill="white"/>
+                                        </svg>                                            
+                                    </button>
+                                </div>
+                            </div>
+                            {{-- @if(!$dataLahan)
+                            <div class="col-span-3">
+                                <p class="font-light text-center text-neutral-600">404 | Data Kosong</p>
+                            </div> --}}
+                        @endforeach
+                    </div>
+                </div>
+                <div class="p-4 shadow-sm bg-neutral-50 rounded-2xl mt-4">
+                    <div class="flex justify-between mb-2">
+                        <h1 class="text-xl text-green-600 font-bold">Dashboard Stok</h1>
+                        <button id="add-stok-modal" class="px-4 py-1 text-sm shadow-sm outline outline-1 outline-blue-600 rounded-md text-blue-600 hover:bg-neutral-200 hover:transition-all hover:duration-300">Tambah Stok</button>
+                    </div>
+                    <table class="table-auto text-sm w-full text-center border border-1 border-collapse">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nama Barang</th>
+                                <th>Persediaan</th>
+                                <th>Satuan</th>
+                                <th>Keterangan</th>
+                                <th>Kelola</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                @foreach($dataStok as $index => $stok)
+                                <td>{{ $index+1 }}</td>
+                                <td>{{ $stok->nama_barang }}</td>
+                                <td>{{ $stok->persediaan }}</td>
+                                <td>{{ $stok->satuan }}</td>
+                                <td><p class="px-1 bg-red-600 rounded text-white">{{ $stok->keterangan }}</p></td>
+                                <td>
+                                    <a href="/" class="mx-1 px-2 outline outline-1 outline-yellow-400 rounded-md text-yellow-400 hover:bg-neutral-200 hover:transition-all hover:duration-300">Edit</a>
+                                    <a href="/" class="mx-1 px-2 outline outline-1 outline-yellow-400 rounded-md text-yellow-400 hover:bg-neutral-200 hover:transition-all hover:duration-300">Hapus</a>
+                                </td>
+                                @endforeach
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="m-2 font-roboto">
-                <p class="text-sm font-light text-neutral-400">Main Menu</p>
-                <a href="/" class="flex items-center gap-2 mb-1 px-2 py-1 rounded-md hover:bg-neutral-200">
-                    <svg width="20" height="17" class="text-green-600" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 0H1.5C1.10218 0 0.720644 0.158035 0.43934 0.43934C0.158035 0.720644 0 1.10218 0 1.5V15C0 15.3978 0.158035 15.7794 0.43934 16.0607C0.720644 16.342 1.10218 16.5 1.5 16.5H18C18.3978 16.5 18.7794 16.342 19.0607 16.0607C19.342 15.7794 19.5 15.3978 19.5 15V1.5C19.5 1.10218 19.342 0.720644 19.0607 0.43934C18.7794 0.158035 18.3978 0 18 0ZM18 1.5V5.25H1.5V1.5H18ZM1.5 6.75H6.75V15H1.5V6.75ZM18 15H8.25V6.75H18V15Z" fill="#156534" />
-                    </svg>
-                    <p class="font-bold text-green-600">Dashboard</p>
-                </a>
-                <a href="/" class="flex items-center gap-2 mb-1 px-2 py-1 rounded-md hover:bg-neutral-200">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9.75127 0.5C9.55235 0.5 9.36159 0.579018 9.22094 0.71967C9.08028 0.860322 9.00127 1.05109 9.00127 1.25V6.5C9.00127 6.69891 9.08028 6.88968 9.22094 7.03033C9.36159 7.17098 9.55235 7.25 9.75127 7.25C10.4116 7.25015 11.0535 7.46819 11.5773 7.8703C12.1012 8.27241 12.4777 8.83613 12.6485 9.47403C12.8193 10.1119 12.7749 10.7884 12.5221 11.3984C12.2693 12.0085 11.8222 12.5181 11.2503 12.8482C10.6784 13.1784 10.0135 13.3106 9.35876 13.2243C8.70405 13.1381 8.09608 12.8382 7.62915 12.3712C7.16222 11.9042 6.86242 11.2962 6.77625 10.6415C6.69007 9.98677 6.82233 9.3219 7.15252 8.75C7.20178 8.66469 7.23376 8.5705 7.24661 8.47283C7.25947 8.37516 7.25296 8.27591 7.22745 8.18075C7.20194 8.08559 7.15794 7.9964 7.09795 7.91825C7.03796 7.84011 6.96316 7.77454 6.87783 7.72531L2.33095 5.10031C2.24564 5.05105 2.15146 5.01907 2.05378 5.00622C1.95611 4.99336 1.85686 4.99987 1.7617 5.02538C1.66655 5.05089 1.57735 5.09489 1.4992 5.15488C1.42106 5.21487 1.3555 5.28967 1.30627 5.375C0.233138 7.23371 -0.196702 9.39458 0.083406 11.5225C0.363514 13.6504 1.33792 15.6264 2.8555 17.1441C4.37308 18.6618 6.34904 19.6363 8.47692 19.9165C10.6048 20.1968 12.7657 19.7671 14.6245 18.6941C16.4833 17.6211 17.936 15.9647 18.7575 13.9819C19.579 11.9991 19.7233 9.8006 19.168 7.72742C18.6127 5.65424 17.3889 3.82222 15.6863 2.51547C13.9837 1.20872 11.8975 0.500276 9.75127 0.5ZM2.2597 6.79062L5.53252 8.68062C5.34628 9.18289 5.25104 9.71432 5.25127 10.25C5.25127 10.3934 5.25877 10.5312 5.27189 10.6737L1.62127 11.6562C1.33657 10.0071 1.5592 8.31046 2.2597 6.79062ZM2.00939 13.1009L5.66564 12.1222C5.97133 12.7885 6.43486 13.3703 7.0161 13.8171C7.59733 14.2639 8.27873 14.5622 9.00127 14.6863V18.4653C7.4486 18.3214 5.96828 17.7414 4.73113 16.7922C3.49398 15.843 2.55044 14.5634 2.00939 13.1009ZM10.5013 18.4653V14.6863C11.5494 14.5086 12.5008 13.9656 13.1868 13.1535C13.8729 12.3414 14.2493 11.3126 14.2493 10.2495C14.2493 9.18644 13.8729 8.15768 13.1868 7.34557C12.5008 6.53347 11.5494 5.99047 10.5013 5.81281V2.03375C12.5508 2.22101 14.4564 3.16756 15.8439 4.68761C17.2314 6.20767 18.0006 8.19144 18.0006 10.2495C18.0006 12.3076 17.2314 14.2914 15.8439 15.8114C14.4564 17.3315 12.5508 18.2781 10.5013 18.4653Z" fill="#525252" />
-                    </svg>
 
-                    <p class="font-bold text-neutral-400">Analisa</p>
-                </a>
-                <a href="/" class="flex items-center gap-2 mb-1 px-2 py-1 rounded-md hover:bg-neutral-200">
-                    <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.8459 12.6171C17.973 12.7695 18.0345 12.9661 18.017 13.1638C17.9994 13.3615 17.9042 13.5442 17.7522 13.6718C16.1247 15.0209 14.6716 15.4999 13.3459 15.4999C11.6041 15.4999 10.0816 14.673 8.665 13.9062C6.28844 12.6162 4.23625 11.5024 1.25219 13.9755C1.17653 14.0394 1.08898 14.0876 0.994597 14.1174C0.900214 14.1472 0.800861 14.1581 0.702267 14.1493C0.603673 14.1405 0.507788 14.1123 0.42014 14.0664C0.332493 14.0204 0.254816 13.9575 0.191589 13.8813C0.128362 13.8052 0.0808356 13.7172 0.0517495 13.6226C0.0226634 13.528 0.012593 13.4286 0.0221193 13.3301C0.0316456 13.2315 0.0605799 13.1359 0.107254 13.0486C0.153928 12.9613 0.217419 12.8841 0.294065 12.8215C4.06 9.70148 6.88656 11.2352 9.38125 12.589C11.7578 13.878 13.81 14.9918 16.7941 12.5196C16.9468 12.3938 17.1431 12.3335 17.3401 12.3517C17.5371 12.37 17.7189 12.4654 17.8459 12.6171ZM16.7894 7.27335C13.8053 9.74648 11.7531 8.63273 9.37657 7.34273C6.88188 5.98991 4.05532 4.45616 0.289378 7.57616C0.138101 7.70376 0.043386 7.88597 0.025873 8.0831C0.00835989 8.28022 0.0694684 8.47628 0.195882 8.62855C0.322295 8.78081 0.503766 8.87694 0.700749 8.89599C0.897732 8.91503 1.09426 8.85545 1.2475 8.73023C4.23156 6.2571 6.28375 7.37085 8.66032 8.66085C10.0769 9.42866 11.5994 10.2546 13.3413 10.2546C14.6669 10.2546 16.12 9.77554 17.7475 8.42648C17.8241 8.36384 17.8876 8.28666 17.9343 8.19937C17.981 8.11208 18.0099 8.01642 18.0194 7.9179C18.029 7.81938 18.0189 7.71994 17.9898 7.62533C17.9607 7.53072 17.9132 7.4428 17.85 7.36664C17.7868 7.29048 17.7091 7.2276 17.6214 7.1816C17.5338 7.13561 17.4379 7.10742 17.3393 7.09866C17.2407 7.0899 17.1414 7.10074 17.047 7.13057C16.9526 7.16039 16.865 7.2086 16.7894 7.27241V7.27335ZM1.2475 3.48116C4.23156 1.00898 6.28375 2.12273 8.66032 3.41179C10.0769 4.18054 11.5994 5.00554 13.3413 5.00554C14.6669 5.00554 16.12 4.52554 17.7475 3.17741C17.8241 3.11478 17.8876 3.0376 17.9343 2.95031C17.981 2.86302 18.0099 2.76736 18.0194 2.66884C18.029 2.57031 18.0189 2.47088 17.9898 2.37627C17.9607 2.28165 17.9132 2.19374 17.85 2.11758C17.7868 2.04142 17.7091 1.97853 17.6214 1.93254C17.5338 1.88655 17.4379 1.85836 17.3393 1.8496C17.2407 1.84084 17.1414 1.85168 17.047 1.8815C16.9526 1.91132 16.865 1.95953 16.7894 2.02335C13.8053 4.49648 11.7531 3.38273 9.37657 2.09273C6.88188 0.741789 4.05532 -0.79196 0.289378 2.32804C0.210058 2.38977 0.143955 2.46681 0.0949953 2.55459C0.046036 2.64237 0.0152195 2.73909 0.00437685 2.83902C-0.00646579 2.93894 0.00288656 3.04002 0.0318783 3.13626C0.0608699 3.2325 0.108909 3.32193 0.173143 3.39923C0.237376 3.47654 0.316492 3.54014 0.405791 3.58627C0.49509 3.6324 0.592751 3.66011 0.692969 3.66775C0.793187 3.6754 0.89392 3.66282 0.989181 3.63076C1.08444 3.59871 1.17229 3.54784 1.2475 3.48116Z" fill="#525252" />
-                    </svg>
-                    <p class="font-bold text-neutral-400">Cuaca</p>
-                </a>
-                <a href="/" class="flex items-center gap-2 mb-1 px-2 py-1 rounded-md hover:bg-neutral-200">
-                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.5016 5.25194C9.61163 5.25194 8.7416 5.51586 8.00158 6.01032C7.26156 6.50479 6.68478 7.20759 6.34419 8.02986C6.00359 8.85213 5.91448 9.75693 6.08811 10.6298C6.26174 11.5028 6.69033 12.3046 7.31966 12.9339C7.949 13.5633 8.75082 13.9918 9.62374 14.1655C10.4967 14.3391 11.4015 14.25 12.2237 13.9094C13.046 13.5688 13.7488 12.992 14.2433 12.252C14.7377 11.512 15.0016 10.642 15.0016 9.75194C15.0004 8.55884 14.5259 7.41497 13.6823 6.57133C12.8386 5.72768 11.6947 5.25318 10.5016 5.25194ZM10.5016 12.7519C9.9083 12.7519 9.32828 12.576 8.83493 12.2463C8.34159 11.9167 7.95707 11.4482 7.73 10.9C7.50294 10.3518 7.44353 9.74861 7.55929 9.16666C7.67504 8.58472 7.96076 8.05017 8.38032 7.63062C8.79988 7.21106 9.33443 6.92533 9.91637 6.80958C10.4983 6.69382 11.1015 6.75323 11.6497 6.9803C12.1979 7.20736 12.6664 7.59188 12.9961 8.08523C13.3257 8.57857 13.5016 9.15859 13.5016 9.75194C13.5016 10.5476 13.1856 11.3106 12.623 11.8733C12.0604 12.4359 11.2973 12.7519 10.5016 12.7519ZM20.8085 7.80287C20.7876 7.69726 20.7442 7.59738 20.6813 7.51003C20.6184 7.42267 20.5374 7.34989 20.4438 7.29662L17.6473 5.70287L17.636 2.551C17.6357 2.44245 17.6118 2.33527 17.566 2.23685C17.5202 2.13844 17.4535 2.05115 17.3707 1.981C16.3563 1.1229 15.1881 0.46531 13.9282 0.0431852C13.829 0.00960381 13.7238 -0.00282378 13.6195 0.00670288C13.5152 0.0162295 13.4141 0.0474992 13.3226 0.0984977L10.5016 1.67537L7.67789 0.0956852C7.58635 0.0443994 7.48506 0.0128937 7.38058 0.00320439C7.2761 -0.00648488 7.17074 0.00585798 7.07133 0.0394351C5.81241 0.464646 4.64554 1.12475 3.63258 1.98475C3.54986 2.0548 3.48331 2.14194 3.43751 2.24018C3.39171 2.33842 3.36774 2.44542 3.36727 2.55381L3.35321 5.7085L0.556643 7.30225C0.463082 7.35551 0.382085 7.4283 0.319157 7.51565C0.256229 7.60301 0.212846 7.70288 0.191956 7.8085C-0.0639853 9.09464 -0.0639853 10.4186 0.191956 11.7047C0.212846 11.8104 0.256229 11.9102 0.319157 11.9976C0.382085 12.085 0.463082 12.1577 0.556643 12.211L3.35321 13.8047L3.36446 16.9566C3.3648 17.0652 3.38869 17.1724 3.4345 17.2708C3.48031 17.3692 3.54693 17.4565 3.62977 17.5266C4.64421 18.3847 5.81241 19.0423 7.07227 19.4644C7.17148 19.498 7.27663 19.5104 7.38094 19.5009C7.48525 19.4914 7.5864 19.4601 7.67789 19.4091L10.5016 17.8285L13.3254 19.4082C13.4371 19.4704 13.5631 19.5027 13.691 19.5019C13.7729 19.5019 13.8543 19.4886 13.932 19.4626C15.1907 19.0379 16.3576 18.3785 17.3707 17.5191C17.4534 17.4491 17.52 17.3619 17.5658 17.2637C17.6116 17.1655 17.6355 17.0585 17.636 16.9501L17.6501 13.7954L20.4466 12.2016C20.5402 12.1484 20.6212 12.0756 20.6841 11.9882C20.7471 11.9009 20.7904 11.801 20.8113 11.6954C21.0658 10.4103 21.0649 9.08762 20.8085 7.80287ZM19.4023 11.0757L16.7238 12.5991C16.6065 12.6659 16.5093 12.763 16.4426 12.8804C16.3882 12.9741 16.331 13.0735 16.2729 13.1672C16.1985 13.2855 16.1589 13.4222 16.1585 13.5619L16.1445 16.5854C15.4245 17.1507 14.6225 17.6028 13.766 17.926L11.0641 16.4204C10.952 16.3583 10.8258 16.326 10.6976 16.3266H10.6798C10.5663 16.3266 10.452 16.3266 10.3385 16.3266C10.2044 16.3233 10.0717 16.3556 9.95414 16.4204L7.25039 17.9297C6.39212 17.6091 5.58785 17.1592 4.86539 16.5957L4.85508 13.5769C4.85462 13.437 4.815 13.2999 4.74071 13.1813C4.68258 13.0876 4.62539 12.9938 4.57196 12.8944C4.5057 12.7753 4.40854 12.6762 4.29071 12.6076L1.60946 11.0804C1.47071 10.2027 1.47071 9.30867 1.60946 8.431L4.28321 6.90475C4.40056 6.83802 4.49773 6.74085 4.56446 6.6235C4.61883 6.52975 4.67602 6.43037 4.73414 6.33662C4.80855 6.2184 4.84818 6.08162 4.84852 5.94194L4.86258 2.9185C5.58251 2.35313 6.38457 1.90105 7.24102 1.57787L9.93914 3.0835C10.0566 3.14859 10.1893 3.18096 10.3235 3.17725C10.437 3.17725 10.5513 3.17725 10.6648 3.17725C10.7989 3.1806 10.9316 3.14825 11.0491 3.0835L13.7529 1.57412C14.6112 1.89482 15.4154 2.34469 16.1379 2.90819L16.1482 5.92693C16.1487 6.0669 16.1883 6.20394 16.2626 6.32256C16.3207 6.41631 16.3779 6.51006 16.4313 6.60944C16.4976 6.7286 16.5947 6.8277 16.7126 6.89631L19.3938 8.4235C19.5344 9.30185 19.536 10.1968 19.3985 11.0757H19.4023Z" fill="#525252" />
-                    </svg>
-                    <p class="font-bold text-neutral-400">Pengaturan</p>
-                </a>
+            <div class="flex-none w-[300px]">
+                <div class="p-4 bg-neutral-50 shadow-sm rounded-2xl h-fit">
+                    <h1 class="text-xl text-green-600 font-bold mb-2">Tumbuhan Ditanam</h1>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="col-span-1">
+                            <img src="https://placehold.co/134x84" alt="">
+                            <p class="text-sm text-center">Kelapa Sawit</p>
+                        </div>
+                        <div class="col-span-1">
+                            <img src="https://placehold.co/134x84" alt="">
+                            <p class="text-sm text-center">Karet</p>
+                        </div>
+                        <div class="col-span-1">
+                            <img src="https://placehold.co/134x84" alt="">
+                            <p class="text-sm text-center">Tebu</p>
+                        </div>
+                        <div class="col-span-1">
+                            <img src="https://placehold.co/134x84" alt="">
+                            <p class="text-sm text-center">Teh</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="bg-neutral-50 shadow-md p-4 rounded-2xl flex flex-col justify-center items-center">
-            <h1 class="font-roboto font-bold text-lg text-neutral-950 mb-2">Pengguna</h1>
-            <img src="https://placehold.co/48" alt="" class="rounded-full outline outline-1 outline-offset-1 mb-2">
-            <p class="font-roboto font-bold text-sm">Joko Susilo</p>
-            <p class="font-roboto font-light text-sm text-neutral-600 mb-4">Owner</p>
-            <a href="/" class="flex gap-2 bg-red-500 px-2 py-1">
-                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.25 17.754C8.25 17.9529 8.17098 18.1437 8.03033 18.2844C7.88968 18.425 7.69891 18.504 7.5 18.504H1.5C1.30109 18.504 1.11032 18.425 0.96967 18.2844C0.829018 18.1437 0.75 17.9529 0.75 17.754V1.25403C0.75 1.05512 0.829018 0.864351 0.96967 0.723698C1.11032 0.583046 1.30109 0.504028 1.5 0.504028H7.5C7.69891 0.504028 7.88968 0.583046 8.03033 0.723698C8.17098 0.864351 8.25 1.05512 8.25 1.25403C8.25 1.45294 8.17098 1.64371 8.03033 1.78436C7.88968 1.92501 7.69891 2.00403 7.5 2.00403H2.25V17.004H7.5C7.69891 17.004 7.88968 17.083 8.03033 17.2237C8.17098 17.3643 8.25 17.5551 8.25 17.754ZM18.5306 8.9734L14.7806 5.2234C14.6399 5.08267 14.449 5.00361 14.25 5.00361C14.051 5.00361 13.8601 5.08267 13.7194 5.2234C13.5786 5.36413 13.4996 5.55501 13.4996 5.75403C13.4996 5.95305 13.5786 6.14392 13.7194 6.28465L16.1897 8.75403H7.5C7.30109 8.75403 7.11032 8.83305 6.96967 8.9737C6.82902 9.11435 6.75 9.30512 6.75 9.50403C6.75 9.70294 6.82902 9.89371 6.96967 10.0344C7.11032 10.175 7.30109 10.254 7.5 10.254H16.1897L13.7194 12.7234C13.5786 12.8641 13.4996 13.055 13.4996 13.254C13.4996 13.4531 13.5786 13.6439 13.7194 13.7847C13.8601 13.9254 14.051 14.0044 14.25 14.0044C14.449 14.0044 14.6399 13.9254 14.7806 13.7847L18.5306 10.0347C18.6004 9.965 18.6557 9.88228 18.6934 9.79123C18.7312 9.70018 18.7506 9.60259 18.7506 9.50403C18.7506 9.40547 18.7312 9.30787 18.6934 9.21682C18.6557 9.12577 18.6004 9.04306 18.5306 8.9734Z" fill="#F5F5F5" />
-                </svg>
-                Keluar
-            </a>
+    </div> 
+
+    <div id="add-modal-lahan" class="fixed z-10 inset-0 hidden">
+        <div class="flex justify-center items-center h-fit bg-neutral-50 shadow-sm mt-12 rounded-xl w-1/3 h-fit mx-auto bg-opacity-75 shadow-md outline outline-1 outline-neutral-600">
+            <div class="flex flex-col p-4">
+                <h1 class="text-lg font-bold text-green-600">Tambah Data Lahan</h1>
+                <form action="{{ route('dashboard.submitLahan') }}" method="POST" enctype="multipart/form-data" class="flex flex-col w-full">
+                    @csrf
+                    <label for="nama_lahan" class="text-sm text-neutral-600">Nama Lahan</label>
+                    <input type="text" name="nama_lahan" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-md shadow-sm focus:outline-green-600 mb-2">
+                    <label for="pemilik" class="text-sm text-neutral-600">Pemilik Lahan</label>
+                    <input type="text" name="pemilik" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-md shadow-sm focus:outline-green-600 mb-2">
+                    <label for="lokasi" class="text-sm text-neutral-600">Lokasi Lahan</label>
+                    <input type="text" name="lokasi" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-md shadow-sm focus:outline-green-600 mb-2">
+                    <label for="luas" class="text-sm text-neutral-600">Luas Lahan <i class="text-italic">(Hektar)</i></label>
+                    <input type="number" name="luas" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-sm shadow-sm focus:outline-green-600 mb-2">
+                    <label for="foto" class="text-sm text-neutral-600">Foto Lahan</label>
+                    <input type="file" name="foto" enctype="multipart/form-data" class="bg-neutral-50 px-2 py-1 outline outline-1 outline-neutral-600 rounded-sm shadow-sm focus:outline-green-600 mb-2">
+                    <label for="tgl_mulai_tanam" class="text-sm text-neutral-600">Tanggal Tanam Lahan</label>
+                    <input type="date" name="tgl_mulai_tanam" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-sm shadow-sm focus:outline-green-600 mb-2">
+                    <div class="flex justify-end mt-2 gap-4">
+                        <button type="submit" class="px-4 py-1 bg-green-600 hover:bg-green-500 hover:transition-all hover:duration-300 rounded-md shadow-sm text-white">Tambah</button>
+                        <a href="dashboard" class="px-4 py-1 bg-red-600 rounded-md shadow-sm text-white hover:bg-red-500 hover:transition-all hover:duration-300">Batal</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    <div class="flex-shrink w-full bg-neutral-50 shadow-md p-4 rounded-2xl">
-        <h1>Dashboard Perusahaan</h1>
-    </div>
-</body>
 
+    @if($lahan)
+    <div id="editModal" class="fixed z-10 inset-0 hidden">
+        <div class="flex justify-center items-center h-fit bg-neutral-50 shadow-sm mt-12 rounded-xl w-1/3 h-fit mx-auto bg-opacity-75 shadow-md outline outline-1 outline-neutral-600">
+            <div class="flex flex-col p-4">
+                <h1 class="text-lg font-bold text-green-600">Ubah Data Lahan</h1>
+                <form action="{{ route('dashboard.updateLahan', $lahan->id) }}" method="POST" id="editForm" enctype="multipart/form-data" class="flex flex-col w-full">
+                    @csrf
+                    <input type="text" id="id" name="id" disabled class="text-sm text-neutral-200"/>
+                    <label for="nama_lahan" class="text-sm text-neutral-600">Nama Lahan</label>
+                    <input type="text" id="namaLahan" name="nama_lahan" value="{{ $lahan->nama_lahan }}" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-md shadow-sm focus:outline-green-600 mb-2">
+                    <label for="pemilik" class="text-sm text-neutral-600">Pemilik Lahan</label>
+                    <input type="text" name="pemilik" value="{{ $lahan->pemilik }}" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-md shadow-sm focus:outline-green-600 mb-2">
+                    <label for="lokasi" id="pemilik" class="text-sm text-neutral-600">Lokasi Lahan</label>
+                    <input type="text" name="lokasi" value="{{ $lahan->lokasi }}" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-md shadow-sm focus:outline-green-600 mb-2">
+                    <label for="luas" id="lokasi" class="text-sm text-neutral-600">Luas Lahan <i class="text-italic">(Hektar)</i></label>
+                    <input type="number" id="luas" name="luas" value="{{ $lahan->luas }}" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-sm shadow-sm focus:outline-green-600 mb-2">
+                    <label for="foto" class="text-sm text-neutral-600">Foto Lahan</label>
+                    <img src="" id="fotoLamaPath" alt="" class="w-12 object-cover">
+                    <input type="file" id="foto" name="foto" class="bg-neutral-50 px-2 py-1 outline outline-1 outline-neutral-600 rounded-sm shadow-sm focus:outline-green-600 mb-2">
+                    <label for="tgl_mulai_tanam" class="text-sm text-neutral-600">Tanggal Tanam Lahan</label>
+                    <input type="date" id="tglMulaiTanam" name="tgl_mulai_tanam" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-sm shadow-sm focus:outline-green-600 mb-2">
+                    <div class="flex justify-end mt-2 gap-4">
+                        <button type="submit" class="px-4 py-1 bg-green-600 hover:bg-green-500 hover:transition-all hover:duration-300 rounded-md shadow-sm text-white">Tambah</button>
+                        <button type="button" onclick="closeModal()" class="px-4 py-1 bg-red-600 rounded-md shadow-sm text-white hover:bg-red-500 hover:transition-all hover:duration-300">Batal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endif
+
+    <div id="add-modal-stok" class="fixed z-10 inset-0 hidden">
+        <div class="flex justify-center items-center h-fit bg-neutral-50 shadow-sm mt-12 rounded-xl w-1/3 h-fit mx-auto bg-opacity-75 shadow-md outline outline-1 outline-neutral-600">
+            <div class="flex flex-col p-4">
+                <h1 class="text-lg font-bold text-green-600">Tambah Data Lahan</h1>
+                <form action="{{ route('dashboard.submitStok') }}" method="POST" class="flex flex-col w-full">
+                    @csrf
+                    <label for="nama_barang" class="text-sm text-neutral-600">Nama Barang</label>
+                    <input type="text" name="nama_barang" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-md shadow-sm focus:outline-green-600 mb-2">
+                    <label for="persediaan" class="text-sm text-neutral-600">Persediaan</label>
+                    <input type="number" name="persediaan" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-md shadow-sm focus:outline-green-600 mb-2">
+                    <label for="satuan" class="text-sm text-neutral-600">Satuan</label>
+                    <input type="text" name="satuan" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-sm shadow-sm focus:outline-green-600 mb-2">
+                    <label for="keterangan" class="text-sm text-neutral-600">Keterangan</label>
+                    <input type="text" name="keterangan" class="bg-neutral-50 px-2 py-1 outline outline-1 outline-neutral-600 rounded-sm shadow-sm focus:outline-green-600 mb-2">
+                    <div class="flex justify-end mt-2 gap-4">
+                        <button type="submit" class="px-4 py-1 bg-green-600 hover:bg-green-500 hover:transition-all hover:duration-300 rounded-md shadow-sm text-white">Tambah</button>
+                        <a href="dashboard" class="px-4 py-1 bg-red-600 rounded-md shadow-sm text-white hover:bg-red-500 hover:transition-all hover:duration-300">Batal</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("add-lahan-modal").addEventListener("click", ()=>(document.getElementById("add-modal-lahan")).classList.remove("hidden"));
+        document.getElementById("add-stok-modal").addEventListener("click", ()=>(document.getElementById("add-modal-stok")).classList.remove("hidden"));
+        
+        function openEditModal(button) {
+            const id = button.getAttribute('data-id');
+            const nama = button.getAttribute('data-nama');
+            const pemilik = button.getAttribute('data-pemilik');
+            const lokasi = button.getAttribute('data-lokasi');
+            const luas = button.getAttribute('data-luas');
+            const foto = button.getAttribute('data-foto');
+            const tgl_mulai_tanam = button.getAttribute('data-tgl_mulai_tanam');
+            const fotoLamaPath = button.dataset.foto;
+            foto.value = fotoLamaPath;
+
+            document.getElementById('id').value = id;
+            document.getElementById('namaLahan').value = nama;
+            document.getElementById('pemilik').value = pemilik;
+            document.getElementById('lokasi').value = lokasi;
+            document.getElementById('luas').value = luas;
+            document.getElementById('tglMulaiTanam').value = tgl_mulai_tanam;
+
+            const form = document.getElementById('editForm');
+            form.action = form.action.replace('placeholder', id);
+
+            const modal = document.getElementById('editModal');
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+        const modal = document.getElementById('editModal');
+        modal.classList.add('hidden');
+        }
+    </script>
+</body>
 </html>

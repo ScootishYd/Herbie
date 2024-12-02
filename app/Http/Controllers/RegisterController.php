@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -14,11 +16,24 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        $user = new User();
-        $user->username = $request->username;
-        $user->password = bcrypt($request->password);
-        $user->save();
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8',
+        ]);
 
-        return redirect()->route('login')->with('success', 'Pendaftaran berhasil!');
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation failed',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        $user = User::create([
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect('login');
     }
 }
