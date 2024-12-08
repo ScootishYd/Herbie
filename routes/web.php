@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AccountController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,3 +28,6 @@ Route::post('/dashboard/submit-stok', [DashboardController::class, 'submitStok']
 Route::get('/dashboard/edit-stok/{id}', [DashboardController::class, 'editStok'])->name('dashboard.editStok');
 Route::post('/dashboard/update-stok/{id}', [DashboardController::class, 'updateStok'])->name('dashboard.editStok');
 Route::post('/dashboard/delete-stok/{id}', [DashboardController::class, 'deleteStok'])->name('dashboard.deleteStok');
+
+Route::get('/account', [AccountController::class, 'showAccountForm'])->name('account');
+Route::put('/account/update/{id}', [AccountController::class, 'update'])->name('account.update');
