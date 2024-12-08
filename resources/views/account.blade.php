@@ -9,19 +9,12 @@
 </head>
 
 <body class="flex bg-neutral-100 m-16 gap-6 font-roboto w-full ">
-    <div class="flex w-full">
-        <!-- Sidebar -->
-        <x-sidebar></x-sidebar>
+        <x-sidebar/>
 
-        <!-- Main Content -->
-        <div class="flex-grow w-full p-4 rounded-2xl">
-            <h1 class="font-roboto text-2xl font-bold text-green-600 mb-2">Dashboard Perusahaan</h1>
-            <div class="flex gap-2 mb-2">
-                <!-- Navbar -->
-                <x-navbar></x-navbar>
-            </div>
-
+        <div class="flex-grow w-full rounded-2xl">
+            <h1 class="font-roboto text-2xl font-bold text-green-600 mb-2">Pengaturan</h1>
             <div class="flex gap-6 h-fit">
+                
                 <div class="flex-col flex-grow">
                     <div class="flex-shrink w-full bg-neutral-50 rounded-2xl shadow-sm p-4 h-fit">
                         <div class="flex justify-between mb-2">
@@ -43,13 +36,13 @@
                             </div>
 
                             <div class="mb-6">
-                                <label for="password" class="block font-medium text-gray-700 mb-2">Password</label>
+                                <label for="password" class="block text-gray-700 mb-2">Password</label>
                                 <input type="password" id="password" name="password" placeholder="Masukkan password"
                                     class="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-200">
                             </div>
 
                             <div class="mb-6">
-                                <label for="profile" class="block font-medium text-gray-700 mb-2">Foto Profil</label>
+                                <label for="profile" class="block text-gray-700 mb-2">Foto Profil</label>
                                 <div class="flex items-center gap-4">
                                     <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $account->profile_picture_url) }}" alt="Foto Profil">
                                     <input type="file" id="profile" name="profile"
@@ -146,5 +139,4 @@
             });
         </script>
 </body>
-
 </html>
