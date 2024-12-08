@@ -25,46 +25,43 @@
                 <div class="flex-col flex-grow">
                     <div class="flex-shrink w-full bg-neutral-50 rounded-2xl shadow-sm p-4 h-fit">
                         <div class="flex justify-between mb-2">
-                            <h1 class="text-xl text-green-600 font-bold">Form Akun</h1>
+                            <h1 class="text-xl text-green-600 font-bold">Akun</h1>
                         </div>
-                        <form class="space-y-6">
-                            <!-- Username -->
+                        <form action="{{ route('account.update', ['id' => $account->id]) }}" method="POST" class="space-y-6">
+                            @csrf
+                            @method('PUT') <!-- Menggunakan metode PUT untuk pembaruan -->
                             <div class="mb-6">
                                 <label for="username" class="block font-medium text-gray-700 mb-2">Username</label>
-                                <input type="text" id="username" name="username" placeholder="Masukkan username"
+                                <input type="text" id="username" name="username" value="{{ old('username', $account->username) }}" placeholder="Masukkan username"
                                     class="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-200">
                             </div>
 
-                            <!-- Email -->
                             <div class="mb-6">
                                 <label for="email" class="block font-medium text-gray-700 mb-2">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Masukkan email"
+                                <input type="email" id="email" name="email" value="{{ old('email', $account->email) }}" placeholder="Masukkan email"
                                     class="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-200">
                             </div>
 
-                            <!-- Password -->
                             <div class="mb-6">
                                 <label for="password" class="block font-medium text-gray-700 mb-2">Password</label>
                                 <input type="password" id="password" name="password" placeholder="Masukkan password"
                                     class="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-200">
                             </div>
 
-                            <!-- Foto Profil -->
                             <div class="mb-6">
                                 <label for="profile" class="block font-medium text-gray-700 mb-2">Foto Profil</label>
                                 <div class="flex items-center gap-4">
-                                    <img class="w-16 h-16 rounded-full" src="https://placehold.co/64" alt="Foto Profil">
+                                    <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $account->profile_picture_url) }}" alt="Foto Profil">
                                     <input type="file" id="profile" name="profile"
                                         class="text-gray-500 text-sm file:py-2 file:px-4 file:border file:border-gray-300 file:rounded-lg file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200">
                                 </div>
                             </div>
 
-                            <!-- Submit Button -->
-                            <button
-                                class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-semibold">
-                                Konfirmasi
+                            <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-semibold">
+                                Update Akun
                             </button>
                         </form>
+
                     </div>
                 </div>
             </div>
@@ -119,6 +116,20 @@
                 </nav>
             </aside>
         </template>
+        @if ($errors->any())
+        <div class="bg-red-100 text-red-600 p-4 rounded-lg mb-6">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        @if (session('success'))
+        <div class="bg-green-100 text-green-600 p-4 rounded-lg mb-6">
+            {{ session('success') }}
+        </div>
+        @endif
 
         <!-- Rendering Components -->
         <script>

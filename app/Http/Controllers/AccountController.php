@@ -7,6 +7,13 @@ use App\Models\Account;
 
 class AccountController extends Controller
 {
+
+    public function __construct()
+    {
+        // Middleware auth untuk memastikan hanya pengguna yang login dapat mengakses
+        $this->middleware('auth');
+    }
+
     // Menampilkan form pengaturan akun
     public function showAccountForm()
     {
@@ -27,7 +34,7 @@ class AccountController extends Controller
         ]);
 
         // Cari akun berdasarkan ID
-        $account = Account::findOrFail($id);
+        $account = Account::findOrFail($id); // Pastikan model yang digunakan adalah Account
 
         // Update data akun
         $account->username = $request->input('username');
