@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Lahan;
 use App\Models\Stok;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -11,10 +13,11 @@ class DashboardController extends Controller
 {
     public function showDashboard()
     {
+        $user = Auth::user();
         $dataLahan = Lahan::all();
         $dataStok = Stok::all();
 
-        return view('dashboard', compact('dataLahan', 'dataStok'));
+        return view('dashboard', compact('dataLahan', 'dataStok', 'user'));
     }
 
     public function submitLahan(Request $request)

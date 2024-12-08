@@ -43,11 +43,18 @@
                 </a>
             </div>
     </div>
+
+    
     <div class="bg-neutral-50 shadow-sm p-4 rounded-2xl flex flex-col justify-center items-center mb-6">
         <h1 class="font-roboto font-bold text-lg text-neutral-950 mb-2">Pengguna</h1>
         <img src="https://placehold.co/48" alt="" class="rounded-full outline outline-1 outline-offset-1 mb-2">
-        <p class="font-roboto font-bold text-sm">Joko Susilo</p>
-        <p class="font-roboto font-light text-sm text-neutral-600 mb-4">Owner</p>
+        <p class="">
+            @if (Auth::check()) 
+                <p class="font-bold text-sm mb-4">{{ Auth::user()->email }}</p>
+            @else
+                <p class="font-light text-sm mb-4">No user logged in.</p>
+            @endif
+        </p>
         <a href="/" class="flex items-center text-neutral-50 font-bold gap-2 bg-red-600 px-4 py-1 rounded-md hover:bg-red-500">
             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.25 17.754C8.25 17.9529 8.17098 18.1437 8.03033 18.2844C7.88968 18.425 7.69891 18.504 7.5 18.504H1.5C1.30109 18.504 1.11032 18.425 0.96967 18.2844C0.829018 18.1437 0.75 17.9529 0.75 17.754V1.25403C0.75 1.05512 0.829018 0.864351 0.96967 0.723698C1.11032 0.583046 1.30109 0.504028 1.5 0.504028H7.5C7.69891 0.504028 7.88968 0.583046 8.03033 0.723698C8.17098 0.864351 8.25 1.05512 8.25 1.25403C8.25 1.45294 8.17098 1.64371 8.03033 1.78436C7.88968 1.92501 7.69891 2.00403 7.5 2.00403H2.25V17.004H7.5C7.69891 17.004 7.88968 17.083 8.03033 17.2237C8.17098 17.3643 8.25 17.5551 8.25 17.754ZM18.5306 8.9734L14.7806 5.2234C14.6399 5.08267 14.449 5.00361 14.25 5.00361C14.051 5.00361 13.8601 5.08267 13.7194 5.2234C13.5786 5.36413 13.4996 5.55501 13.4996 5.75403C13.4996 5.95305 13.5786 6.14392 13.7194 6.28465L16.1897 8.75403H7.5C7.30109 8.75403 7.11032 8.83305 6.96967 8.9737C6.82902 9.11435 6.75 9.30512 6.75 9.50403C6.75 9.70294 6.82902 9.89371 6.96967 10.0344C7.11032 10.175 7.30109 10.254 7.5 10.254H16.1897L13.7194 12.7234C13.5786 12.8641 13.4996 13.055 13.4996 13.254C13.4996 13.4531 13.5786 13.6439 13.7194 13.7847C13.8601 13.9254 14.051 14.0044 14.25 14.0044C14.449 14.0044 14.6399 13.9254 14.7806 13.7847L18.5306 10.0347C18.6004 9.965 18.6557 9.88228 18.6934 9.79123C18.7312 9.70018 18.7506 9.60259 18.7506 9.50403C18.7506 9.40547 18.7312 9.30787 18.6934 9.21682C18.6557 9.12577 18.6004 9.04306 18.5306 8.9734Z" fill="#F5F5F5" />
@@ -55,6 +62,8 @@
             Keluar
         </a>
     </div>
+    
+
     <div class="p-4 flex flex-col justify-center items-center mb-6">
         <p class="text-light text-neutral-400 tracking-tight mb-2">Developed by</p>
         <img src="./images/logo.png" alt="Herbie Logo" class="h-11 mb-2">
