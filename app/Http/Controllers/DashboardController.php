@@ -64,4 +64,13 @@ class DashboardController extends Controller
 
         return redirect()->back()->with('success', 'Stok berhasil disimpan!');
     }
+
+    public function editStok(Request $request, $id)
+    {
+        dd($id);
+        $stok = Stok::find($id);
+        $stok->update($request->all());
+
+        return redirect()->route('dashboard')->with('success', 'Data berhasil diperbarui!');
+    }
 }
