@@ -16,10 +16,8 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login/submit', [LoginController::class, 'login'])->name('login');
 
 Route::get('/dashboard', [dashboardController::class, 'showDashboard'])->name('dashboard');
-Route::get('/dashboard/tambah-lahan', [DashboardController::class, 'addLahan'])->name('dashboard.addLahan');
 Route::post('/dashboard/submit-lahan', [DashboardController::class, 'submitLahan'])->name('dashboard.submitLahan');
-Route::get('/dashboard/edit-lahan/{id}', [DashboardController::class, 'editLahan'])->name('dashboard.editLahan');
-Route::put('/dashboard/lahan/{id}', [DashboardController::class, 'update'])->name('lahan.update');
+// Route::put('/dashboard/lahan/{id}/edit', [DashboardController::class, 'update'])->name('lahan.update');
 Route::post('/dashboard/update-lahan/{id}', [DashboardController::class, 'updateLahan'])->name('dashboard.updateLahan');
 Route::post('/dashboard/delete-lahan/{id}', [DashboardController::class, 'deleteLahan'])->name('dashboard.deleteLahan');
 

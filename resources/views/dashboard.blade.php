@@ -9,7 +9,7 @@
 </head>
 <body class="flex bg-neutral-100 m-16 gap-6 font-roboto">
     <x-sidebar/>
-    <div class="hidden">    {{ $lahan = 0 }}</div>
+    {{-- <div class="hidden">    {{ $lahan = 0 }}</div> --}}
 
     <div class="flex-grow w-full p-4 rounded-2xl">
         <h1 class="font-roboto text-2xl font-bold text-green-600 mb-2">Dashboard Perusahaan</h1>
@@ -62,15 +62,7 @@
                                             <path d="M18.1646 3.81396H14.4146V3.06396C14.4146 2.46723 14.1775 1.89493 13.7555 1.47297C13.3336 1.05102 12.7613 0.813965 12.1646 0.813965H7.66455C7.06781 0.813965 6.49552 1.05102 6.07356 1.47297C5.6516 1.89493 5.41455 2.46723 5.41455 3.06396V3.81396H1.66455C1.46564 3.81396 1.27487 3.89298 1.13422 4.03363C0.993569 4.17429 0.914551 4.36505 0.914551 4.56396C0.914551 4.76288 0.993569 4.95364 1.13422 5.09429C1.27487 5.23495 1.46564 5.31396 1.66455 5.31396H2.41455V18.814C2.41455 19.2118 2.57259 19.5933 2.85389 19.8746C3.1352 20.1559 3.51673 20.314 3.91455 20.314H15.9146C16.3124 20.314 16.6939 20.1559 16.9752 19.8746C17.2565 19.5933 17.4146 19.2118 17.4146 18.814V5.31396H18.1646C18.3635 5.31396 18.5542 5.23495 18.6949 5.09429C18.8355 4.95364 18.9146 4.76288 18.9146 4.56396C18.9146 4.36505 18.8355 4.17429 18.6949 4.03363C18.5542 3.89298 18.3635 3.81396 18.1646 3.81396ZM6.91455 3.06396C6.91455 2.86505 6.99357 2.67429 7.13422 2.53363C7.27487 2.39298 7.46564 2.31396 7.66455 2.31396H12.1646C12.3635 2.31396 12.5542 2.39298 12.6949 2.53363C12.8355 2.67429 12.9146 2.86505 12.9146 3.06396V3.81396H6.91455V3.06396ZM15.9146 18.814H3.91455V5.31396H15.9146V18.814ZM8.41455 9.06396V15.064C8.41455 15.2629 8.33553 15.4536 8.19488 15.5943C8.05423 15.7349 7.86346 15.814 7.66455 15.814C7.46564 15.814 7.27487 15.7349 7.13422 15.5943C6.99357 15.4536 6.91455 15.2629 6.91455 15.064V9.06396C6.91455 8.86505 6.99357 8.67429 7.13422 8.53363C7.27487 8.39298 7.46564 8.31396 7.66455 8.31396C7.86346 8.31396 8.05423 8.39298 8.19488 8.53363C8.33553 8.67429 8.41455 8.86505 8.41455 9.06396ZM12.9146 9.06396V15.064C12.9146 15.2629 12.8355 15.4536 12.6949 15.5943C12.5542 15.7349 12.3635 15.814 12.1646 15.814C11.9656 15.814 11.7749 15.7349 11.6342 15.5943C11.4936 15.4536 11.4146 15.2629 11.4146 15.064V9.06396C11.4146 8.86505 11.4936 8.67429 11.6342 8.53363C11.7749 8.39298 11.9656 8.31396 12.1646 8.31396C12.3635 8.31396 12.5542 8.39298 12.6949 8.53363C12.8355 8.67429 12.9146 8.86505 12.9146 9.06396Z" fill="white"/>
                                         </svg>
                                     </button>
-                                    <button id="edit-lahan-modal" 
-                                    data-id="{{ $lahan->id }}"
-                                    data-nama="{{ $lahan->nama_lahan }}"
-                                    data-pemilik="{{ $lahan->pemilik }}" 
-                                    data-lokasi="{{ $lahan->lokasi }}" 
-                                    data-luas="{{ $lahan->luas }}"
-                                    data-foto="{{ $lahan->foto }}"
-                                    data-tgl_mulai_tanam="{{ $lahan->tgl_mulai_tanam}}"
-                                    onclick="openEditModal(this)"
+                                    <button onclick="openEditModal({{ $lahan->id }})"
                                     class="text-sm px-1 py-0.5 bg-yellow-400 hover:bg-yellow-300 rounded-md">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M19.2258 5.19242L15.0361 1.00367C14.8968 0.864346 14.7315 0.753826 14.5494 0.678422C14.3674 0.603019 14.1723 0.564209 13.9753 0.564209C13.7783 0.564209 13.5832 0.603019 13.4012 0.678422C13.2192 0.753826 13.0538 0.864346 12.9146 1.00367L1.35425 12.564C1.21435 12.7028 1.10344 12.868 1.02796 13.05C0.952475 13.232 0.913929 13.4272 0.914558 13.6243V17.814C0.914558 18.2118 1.07259 18.5933 1.3539 18.8746C1.6352 19.1559 2.01673 19.314 2.41456 19.314H18.1646C18.3635 19.314 18.5542 19.235 18.6949 19.0943C18.8355 18.9537 18.9146 18.7629 18.9146 18.564C18.9146 18.3651 18.8355 18.1743 18.6949 18.0337C18.5542 17.893 18.3635 17.814 18.1646 17.814H8.72581L19.2258 7.31398C19.3651 7.17469 19.4757 7.00932 19.5511 6.82731C19.6265 6.64529 19.6653 6.45021 19.6653 6.2532C19.6653 6.05619 19.6265 5.86111 19.5511 5.6791C19.4757 5.49709 19.3651 5.33171 19.2258 5.19242ZM6.60425 17.814H2.41456V13.6243L10.6646 5.37429L14.8542 9.56398L6.60425 17.814ZM15.9146 8.50367L11.7258 4.31398L13.9758 2.06398L18.1646 6.25367L15.9146 8.50367Z" fill="white"/>
@@ -90,33 +82,35 @@
                         <h1 class="text-xl text-green-600 font-bold">Dashboard Stok</h1>
                         <button id="add-stok-modal" class="px-4 py-1 text-sm shadow-sm outline outline-1 outline-blue-600 rounded-md text-blue-600 hover:bg-neutral-200 hover:transition-all hover:duration-300">Tambah Stok</button>
                     </div>
-                    <table class="table-auto text-sm w-full text-center border border-1 border-collapse">
+                    <div class="relative p-1 overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="table-auto text-sm w-full text-center">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Nama Barang</th>
-                                <th>Persediaan</th>
-                                <th>Satuan</th>
-                                <th>Keterangan</th>
-                                <th>Kelola</th>
+                                <th class="py-1 bg-neutral-100 rounded">ID</th>
+                                <th class="py-1 bg-neutral-100 rounded">Nama Barang</th>
+                                <th class="py-1 bg-neutral-100 rounded">Persediaan</th>
+                                <th class="py-1 bg-neutral-100 rounded">Satuan</th>
+                                <th class="py-1 bg-neutral-100 rounded">Keterangan</th>
+                                <th class="py-1 bg-neutral-100 rounded">Kelola</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
                                 @foreach($dataStok as $index => $stok)
-                                <td>{{ $index+1 }}</td>
-                                <td>{{ $stok->nama_barang }}</td>
-                                <td>{{ $stok->persediaan }}</td>
-                                <td>{{ $stok->satuan }}</td>
-                                <td><p class="px-1 bg-red-600 rounded text-white">{{ $stok->keterangan }}</p></td>
-                                <td>
-                                    <a href="/" class="mx-1 px-2 outline outline-1 outline-yellow-400 rounded-md text-yellow-400 hover:bg-neutral-200 hover:transition-all hover:duration-300">Edit</a>
-                                    <a href="/" class="mx-1 px-2 outline outline-1 outline-yellow-400 rounded-md text-yellow-400 hover:bg-neutral-200 hover:transition-all hover:duration-300">Hapus</a>
+                            <tr class="odd:bg-green-100">
+                                <td class="py-1">{{ $index+1 }}</td>
+                                <td class="py-1">{{ $stok->nama_barang }}</td>
+                                <td class="py-1">{{ $stok->persediaan }}</td>
+                                <td class="py-1">{{ $stok->satuan }}</td>
+                                <td class="py-1"><p class="px-1 bg-green-600 rounded text-white">{{ $stok->keterangan }}</p></td>
+                                <td class="py-1">
+                                    <a href="/" class=" px-2 outline outline-1 outline-yellow-400 rounded-md text-yellow-400 hover:bg-neutral-200 hover:transition-all hover:duration-300">Edit</a>
+                                    <a href="/" class=" px-2 outline outline-1 outline-red-400 rounded-md text-red-400 hover:bg-neutral-200 hover:transition-all hover:duration-300">Hapus</a>
                                 </td>
-                                @endforeach
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
 
@@ -217,7 +211,12 @@
                     <label for="satuan" class="text-sm text-neutral-600">Satuan</label>
                     <input type="text" name="satuan" class="px-2 py-1 outline outline-1 outline-neutral-600 rounded-sm shadow-sm focus:outline-green-600 mb-2">
                     <label for="keterangan" class="text-sm text-neutral-600">Keterangan</label>
-                    <input type="text" name="keterangan" class="bg-neutral-50 px-2 py-1 outline outline-1 outline-neutral-600 rounded-sm shadow-sm focus:outline-green-600 mb-2">
+                    {{-- <input type="text" name="keterangan" class="bg-neutral-50 px-2 py-1 outline outline-1 outline-neutral-600 rounded-sm shadow-sm focus:outline-green-600 mb-2"> --}}
+                    <select name="keterangan" id="keterangan" class="bg-neutral-50 px-2 py-1 outline outline-1 outline-neutral-600 rounded-sm shadow-sm focus:outline-green-600 mb-2">
+                        <option value="stok aman">Stok Aman</option>
+                        <option value="stok menipis">Stok Menipis</option>
+                        <option value="stok habis">Stok Habis</option>
+                    </select>
                     <div class="flex justify-end mt-2 gap-4">
                         <button type="submit" class="px-4 py-1 bg-green-600 hover:bg-green-500 hover:transition-all hover:duration-300 rounded-md shadow-sm text-white">Tambah</button>
                         <a href="dashboard" class="px-4 py-1 bg-red-600 rounded-md shadow-sm text-white hover:bg-red-500 hover:transition-all hover:duration-300">Batal</a>
@@ -229,32 +228,16 @@
 
     <script>
         document.getElementById("add-lahan-modal").addEventListener("click", ()=>(document.getElementById("add-modal-lahan")).classList.remove("hidden"));
-        document.getElementById("add-stok-modal").addEventListener("click", ()=>(document.getElementById("add-modal-stok")).classList.remove("hidden"));
         
-        function openEditModal(button) {
-            const id = button.getAttribute('data-id');
-            const nama = button.getAttribute('data-nama');
-            const pemilik = button.getAttribute('data-pemilik');
-            const lokasi = button.getAttribute('data-lokasi');
-            const luas = button.getAttribute('data-luas');
-            const foto = button.getAttribute('data-foto');
-            const tgl_mulai_tanam = button.getAttribute('data-tgl_mulai_tanam');
-            const fotoLamaPath = button.dataset.foto;
-            foto.value = fotoLamaPath;
-
-            document.getElementById('id').value = id;
-            document.getElementById('namaLahan').value = nama;
-            document.getElementById('pemilik').value = pemilik;
-            document.getElementById('lokasi').value = lokasi;
-            document.getElementById('luas').value = luas;
-            document.getElementById('tglMulaiTanam').value = tgl_mulai_tanam;
-
-            const form = document.getElementById('editForm');
-            form.action = form.action.replace('placeholder', id);
-
-            const modal = document.getElementById('editModal');
-            modal.classList.remove('hidden');
-        }
+        function openEditModal($lahan->id) {
+        fetch(`dashboard/update-lahan/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('id').value = data.id;
+                document.getElementById('nama_lahan').value = data.name;
+                document.getElementById('editModal').classList.remove('hidden');
+            });
+    }
 
         function closeModal() {
         const modal = document.getElementById('editModal');

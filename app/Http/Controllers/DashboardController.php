@@ -31,7 +31,7 @@ class DashboardController extends Controller
             $file = $request->file('foto');
             $filename = time() . '_' . $file->getClientOriginalName();
             // Pindahkan file ke folder yang sesuai
-            $file->move(public_path('uploads/lahan'), $filename); // Pastikan menggunakan public_path
+            $file->move(public_path('uploads/lahan'), $filename);
             $lahan->foto = 'uploads/lahan/' . $filename;
         } else {
             $lahan->foto = null;
@@ -44,11 +44,10 @@ class DashboardController extends Controller
 
     public function updateLahan(Request $request, $id)
     {
-        dd($id);
-        $lahan = Lahan::find($id);
-        $lahan->update($request->all());
+        $lahan = Lahan::findOrFail($id);
+        return response()->json($lahan);
 
-        return redirect()->route('dashboard')->with('success', 'Data berhasil diperbarui!');
+        // return redirect()->route('dashboard')->with('success', 'Data berhasil diperbarui!');
     }
 
     public function submitStok(Request $request)
