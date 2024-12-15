@@ -8,10 +8,7 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-<<<<<<< HEAD
     build: {
         outDir: 'public/build',
     },
-=======
->>>>>>> 38e03ac (Set up a fresh Laravel app)
 });

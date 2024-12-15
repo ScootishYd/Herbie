@@ -102,4 +102,9 @@ class UsersController extends Controller
     }
 
     public function destroy() {}
+
+    public function showDashboardAccountForm()
+    {
+        return view('dashboard-account');
+    }
 }

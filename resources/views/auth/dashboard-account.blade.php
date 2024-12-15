@@ -10,9 +10,9 @@
 
 <body class="flex bg-neutral-100 m-16 gap-6 font-roboto ">
     <x-sidebar />
-    <div class="grow rounded-2xl px-4">
+
+    <div class="flex-grow rounded-2xl px-4">
         <h1 class="font-roboto text-2xl p-4 font-bold text-green-600 mb-2">Pengaturan</h1>
-        <x-navbar />
         <div class="flex gap-6 h-fit">
 
             <div class="flex-col flex-grow">
@@ -69,6 +69,12 @@
         // Render Sidebar
         document.querySelectorAll('x-sidebar').forEach(el => {
             const template = document.getElementById('x-sidebar');
+            el.replaceWith(template.content.cloneNode(true));
+        });
+
+        // Render Navbar
+        document.querySelectorAll('y-navbar').forEach(el => {
+            const template = document.getElementById('y-navbar');
             el.replaceWith(template.content.cloneNode(true));
         });
     </script>

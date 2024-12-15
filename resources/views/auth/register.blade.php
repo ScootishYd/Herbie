@@ -17,7 +17,7 @@
     </nav>
 
     <div class="flex items-center justify-center min-h-[80vh]">
-        <form action="{{ route('register') }}" method="POST" class="bg-white p-8 rounded-lg shadow-md w-[400px]">
+        <form action="{{ route('register.submit') }}" method="POST" class="bg-white p-8 rounded-lg shadow-md w-[400px]">
             @csrf
             <h2 class="text-center text-green-800 text-xl font-semibold mb-6">Daftar</h2>
 
@@ -50,7 +50,7 @@
             <!-- Submit Button -->
             <div class="mb-6">
                 <button class="w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
-                type="submit">
+                    type="submit">
                     Daftar
                 </button>
             </div>
@@ -80,4 +80,5 @@
         </form>
     </div>
 </body>
+
 </html>
